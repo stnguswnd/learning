@@ -20,3 +20,5 @@ Git은 분산 버전 관리 시스템(Distributed Version Control System)입니�
 - `git branch [브랜치 이름]`: 새로운 브랜치를 생성합니다.
 - `git checkout [브랜치 이름]`: 다른 브랜치로 전환합니다.
 - `git merge [브랜치 이름]`: 현재 브랜치에 다른 브랜치의 변경 사항을 병합합니다.
+
+# 수정 
