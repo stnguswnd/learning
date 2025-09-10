@@ -49,7 +49,7 @@ git branch -M main
 - git add . GEMINI.md : 특정 파일 하나만 staging area로 옮겨줌. 
 파일 옆에 U->A로 바뀌네? 이걸 CLI 상에서 확인할려면 git status라고 치면 Changes to be committed:에 새로 값이 업로드 되어있다. Untracked files는 워크 디렉토리에 있다. 
 - git add . : 특정 파일이 아닌 전체 파일을 staging area로 옮겨줌. 
-- git commit : 커밋을 진행 시에 vscode 상에서 commit_editmsg 라는 파일이 같이 뜬다. 이는 커밋 메시지를 작성할 수 있게 띄워주기 위함이다. (커밋 후에는 vscode 상에서 파일명 옆에 변경 사항이 없어진다.
+- git commit : 커밋을 진행 시에 vscode 상에서 commit_editmsg 라는 파일이 같이 뜬다. 이는 커밋 메시지를 작성할 수 있게 띄워주기 위함이다. (커밋 후에는 vscode 상에서 파일명 옆에 변경 사항이 없어진다.)
 - git commit -m "커밋 메시지" : 커밋 메시지를 바로 입력할 수 있게 한다. GUI 상에서 커밋 메시지를 입력하게 하는 창이 안뜬다. 
 - git status : 다시 다른 파일을 변경해보니, 파일명 옆에 M이 뜨고, 노란색이 뜬다. git status를 클릭하니, modified: ~ 부분에 수정한 파일이 뜬다. 
 
@@ -62,10 +62,12 @@ git branch -M main
 # 깃 명령어 
 
 ## 변경된 파일을 스테이징 영역으로 이동하는 명령어
-git add . 또는 git add 파일 명
+- `git add <파일 명>`
+- `git add .` 
 
 ## 스테이징 영역에 있는 파일을 기록(커밋)하는 명령어
-git commit 또는 git commit -m "커밋 메시지"
+- `git commit` 
+- `git commit -m "커밋 메시지"` : 커밋 메시지와 함께 커밋 
 
 ## 현재 파일 상태를 출력하는 명령어 
-git status 
+`git status`
