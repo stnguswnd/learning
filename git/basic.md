@@ -64,3 +64,13 @@
 
 ## 현재 파일 상태를 출력하는 명령어 
 `git status`
+
+
+### Git Graph 확장 프로그램
+- `git log` 명령어 처럼 커밋 이력을 시작화해서 보여주는 확장 프로그램
+
+1. 확장 프로그램 검색 창에 `Git Graph` 검색 
+![Git Graph](https://www.notion.so/image/https%3A%2F%2Fwww.dropbox.com%2Fscl%2Ffi%2F205d8hwmo6hrlymseo9zn%2FCode_XO9YFUcr8m.png%3Frlkey%3D8l5fobpa7mu10byjisbp0luaz%26dl%3D1%26spaceId%3Df2678325-6f7b-4a25-b188-86c42030d6d5?table=block&id=269611ac-3a00-8063-83ec-e952697d62d9&cache=v2) 
+
+2. Changes 작업 공간으로 이동 후, 옆에 생긴 Source Control 메뉴 열기! 
+![Git Graph 위치](https://www.notion.so/image/https%3A%2F%2Fwww.dropbox.com%2Fscl%2Ffi%2F46voti4sp8l9fihg1pnx5%2FCode_UlZESqyVz1.png%3Frlkey%3D46kx3mmbo9ophn2lhefz4a79l%26dl%3D1%26spaceId%3Df2678325-6f7b-4a25-b188-86c42030d6d5?table=block&id=269611ac-3a00-80e3-a68d-f6f351fcce74&cache=v2)
