@@ -15,6 +15,14 @@
 - 스테이징 : 
 - 커밋 : 
 
+## git ignore 설정
+- 보안을 목적으로 다른 사용자에게 노출되면 안되는 파일과 폴더를 명시해주는 목적이다. 
+- 이미 commit된 것들은 git ignore 처리가 불가능하므로 git init 단계에서 잘 설정해주어야 한다. 잘 모르겠으면 gitignore.io 사이트 활용! 
+- 사용법 폴더는 `폴더명/` 으로 적고, 파일 이름은 그냥 `파일명`을 치면 된다.
+
+## gitignore.io는 어떤 서비스인가? 
+
+
 ## 필수 명령어 
 
 - `git init`  : 이 작업 디렉토리를 이제 git으로 관리하겠어
@@ -23,6 +31,7 @@
 - `git resest —hard HEAD` : reset에서 hard 라는 옵션으로 옵션을 깔끔하게 지우고, 가장 최신 커밋으로 날아가기 위한 명령어!
 - `git log` : 기존의 커밋들을 알려준다.
 - `git log --oneline`: 커밋 메시지만 간단히 보인다. 
+- git log에서 나올 떄는 `q`를 쳐서 나와주면 된다. 
 
 ## git hub랑 연동해서 사용하는 명령어 
 
@@ -76,3 +85,29 @@
 
 2. Changes 작업 공간으로 이동 후, 옆에 생긴 Source Control 메뉴 열기! 
 ![Git Graph 위치](https://www.notion.so/image/https%3A%2F%2Fwww.dropbox.com%2Fscl%2Ffi%2F46voti4sp8l9fihg1pnx5%2FCode_UlZESqyVz1.png%3Frlkey%3D46kx3mmbo9ophn2lhefz4a79l%26dl%3D1%26spaceId%3Df2678325-6f7b-4a25-b188-86c42030d6d5?table=block&id=269611ac-3a00-80e3-a68d-f6f351fcce74&cache=v2)
+
+
+### github 
+
+``` 
+git remote add origin []
+git remote -v
+git push origin master
+git remote remove origin 
+git remote -v(다시 확인)
+```
+
+##git push origin main, origin은 무엇인가? 
+- 
+
+## 원격 저장소란 무엇인가?
+- 웹 상에서 관리되는 저장소, 구글 드라이브, 네이버 클라우드와 같은 클라우드 서비스를 떠올리면 된다. 
+ 
+## 지역 저장소와 원격 저장소의 구분
+ 
+## 지역 저장소와 원격 저장소의 동기화란 무엇인가? 
+
+## 깃허브에 있는 
+
+``` 
+ git pull origin main
