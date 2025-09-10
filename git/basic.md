@@ -47,6 +47,8 @@
 - `git commit -m "커밋 메시지"` : 커밋 메시지를 바로 입력할 수 있게 한다. GUI 상에서 커밋 메시지를 입력하게 하는 창이 안뜬다. 
 - `git status` : 다시 다른 파일을 변경해보니, 파일명 옆에 M이 뜨고, 노란색이 뜬다. git status를 클릭하니, modified: ~ 부분에 수정한 파일이 뜬다. 
 
+### 잘 안쓰지만 알면 좋은 명령어 
+- git diff
 
 ### 좋은 커밋이란? 
 - 처음에는 좋은 커밋 메시지나, 규칙에 구애받기보다 많이 해보면서 경험을 축적해보는 것도 좋은 것 같다?! 
@@ -67,7 +69,7 @@
 
 
 ### Git Graph 확장 프로그램
-- `git log` 명령어 처럼 커밋 이력을 시작화해서 보여주는 확장 프로그램
+- `git log` 명령어 처럼 커밋 이력을 시작화해서 보여주는 확장ㅎ 프로그램
 
 1. 확장 프로그램 검색 창에 `Git Graph` 검색 
 ![Git Graph](https://www.notion.so/image/https%3A%2F%2Fwww.dropbox.com%2Fscl%2Ffi%2F205d8hwmo6hrlymseo9zn%2FCode_XO9YFUcr8m.png%3Frlkey%3D8l5fobpa7mu10byjisbp0luaz%26dl%3D1%26spaceId%3Df2678325-6f7b-4a25-b188-86c42030d6d5?table=block&id=269611ac-3a00-8063-83ec-e952697d62d9&cache=v2) 
