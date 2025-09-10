@@ -16,25 +16,20 @@
 - 커밋 : 
 
 ## 필수 명령어 
-``` 
-git init  : 이 작업 디렉토리를 이제 git으로 관리하겠어
-git add . : 이번 작업을 하면서, 변경 사항이 발생한 것을 한꺼번에 Staging Area로 옮긴다. 
-git commit -m "커밋 메시지 : 커밋을 하면 해당 커밋이 repository에 영구 저장됨
-git resest —hard HEAD : reset에서 hard 라는 옵션으로 옵션을 깔끔하게 지우고, 가장 최신 커밋으로 날아가기 위한 명령어!
-git log : 기존의 커밋들을 알려준다.
-git log --oneline: 커밋 메시지만 간단히 보인다. 
-git 
 
-```
+- `git init`  : 이 작업 디렉토리를 이제 git으로 관리하겠어
+- `git add .` : 이번 작업을 하면서, 변경 사항이 발생한 것을 한꺼번에 Staging Area로 옮긴다. 
+- `git commit -m "커밋 메시지` : 커밋을 하면 해당 커밋이 repository에 영구 저장됨
+- `git resest —hard HEAD` : reset에서 hard 라는 옵션으로 옵션을 깔끔하게 지우고, 가장 최신 커밋으로 날아가기 위한 명령어!
+- `git log` : 기존의 커밋들을 알려준다.
+- `git log --oneline`: 커밋 메시지만 간단히 보인다. 
 
 ## git hub랑 연동해서 사용하는 명령어 
 
-```
-git remote add origin [URL 주소]
-git status 
-git push : local -> remote로 옮겨주기 위해서는 git push를 누르면 된다. 
-git branch -M main 
-```
+- `git remote add origin [URL 주소]`
+- `git status` 
+- `git push : local -> remote로 옮겨주기 위해서는 git push를 누르면 된다.` 
+- `git branch -M main`  
 
 
 ### VSCODE GUI안에서 작동법
@@ -45,15 +40,13 @@ git branch -M main
 
 
 ### 간단 실습 
-```
-- git add . GEMINI.md : 특정 파일 하나만 staging area로 옮겨줌. 
+- `git add . GEMINI.md` : 특정 파일 하나만 staging area로 옮겨줌. 
 파일 옆에 U->A로 바뀌네? 이걸 CLI 상에서 확인할려면 git status라고 치면 Changes to be committed:에 새로 값이 업로드 되어있다. Untracked files는 워크 디렉토리에 있다. 
-- git add . : 특정 파일이 아닌 전체 파일을 staging area로 옮겨줌. 
-- git commit : 커밋을 진행 시에 vscode 상에서 commit_editmsg 라는 파일이 같이 뜬다. 이는 커밋 메시지를 작성할 수 있게 띄워주기 위함이다. (커밋 후에는 vscode 상에서 파일명 옆에 변경 사항이 없어진다.)
-- git commit -m "커밋 메시지" : 커밋 메시지를 바로 입력할 수 있게 한다. GUI 상에서 커밋 메시지를 입력하게 하는 창이 안뜬다. 
-- git status : 다시 다른 파일을 변경해보니, 파일명 옆에 M이 뜨고, 노란색이 뜬다. git status를 클릭하니, modified: ~ 부분에 수정한 파일이 뜬다. 
+- `git add .` : 특정 파일이 아닌 전체 파일을 staging area로 옮겨줌. 
+- `git commit` : 커밋을 진행 시에 vscode 상에서 commit_editmsg 라는 파일이 같이 뜬다. 이는 커밋 메시지를 작성할 수 있게 띄워주기 위함이다. (커밋 후에는 vscode 상에서 파일명 옆에 변경 사항이 없어진다.)
+- `git commit -m "커밋 메시지"` : 커밋 메시지를 바로 입력할 수 있게 한다. GUI 상에서 커밋 메시지를 입력하게 하는 창이 안뜬다. 
+- `git status` : 다시 다른 파일을 변경해보니, 파일명 옆에 M이 뜨고, 노란색이 뜬다. git status를 클릭하니, modified: ~ 부분에 수정한 파일이 뜬다. 
 
-```
 
 ### 좋은 커밋이란? 
 - 처음에는 좋은 커밋 메시지나, 규칙에 구애받기보다 많이 해보면서 경험을 축적해보는 것도 좋은 것 같다?! 
