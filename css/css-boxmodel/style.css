@@ -1,0 +1,61 @@
+.padding-box {
+  padding-left: 0.75rem;
+  padding-right: 1rem;
+  padding-top: 2rem;
+  padding-bottom: 0rem;
+}
+
+.border-box {
+  border-radius: 2rem;
+  border-color: red;
+  border-width: 10px;
+  border-style: dashed;
+
+  /*너비, 종류, 색*/
+
+  /* border: 10px dashed red; 랑 위랑 효과가 같다.*/
+}
+
+span {
+  margin: 20px;
+}
+
+.margin-1 {
+  height: 100px;
+  background-color: lightblue;
+}
+
+.margin-2 {
+  height: 100px;
+  background-color: lightcoral;
+  margin-top: 100px;
+}
+
+.margin-3 {
+  height: 100px;
+  background-color: lightgreen;
+  margin-top: 200px;
+}
+
+.box {
+  width: 100px;
+  background-color: lightpink;
+  border: none;
+  border-radius: 0;
+  margin-bottom: 2rem;
+  padding: 20px;
+}
+
+.content-box {
+  /*너비와 높이의 계산을 
+  오로지 컨텐츠로만 계산한다 */
+  box-sizing: content-box;
+}
+
+.border-box {
+  /*너비와 높이의 계산을 
+  컨텐츠 + 패딩 + 테두리로 계산한다. */
+  box-sizing: border-box;
+  margin: 0px;
+  padding: 0px;
+}

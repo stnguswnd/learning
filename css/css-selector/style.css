@@ -1,0 +1,61 @@
+.red {
+  color: red;
+}
+
+.green {
+  color: green;
+}
+
+.blue {
+  color: blue;
+}
+
+.font-100 {
+  font-size: 100px;
+}
+
+.font-50 {
+  font-size: 50px;
+}
+
+#bold {
+  font-weight: 900;
+}
+
+[href] {
+  font-size: 30px;
+  text-decoration: none;
+}
+
+div > p {
+  font-style: italic;
+}
+
+#parent > .child {
+  color: green;
+}
+
+body p {
+  font-weight: 900;
+}
+
+/* 혼합 선택자 */
+span.red {
+  color: lightcoral;
+}
+
+span#pin {
+  color: blue;
+}
+
+div {
+  font: size 100px;
+}
+
+#font-100 {
+  font-size: 100px;
+}
+
+.font-90 {
+  font-size: 90px;
+}

@@ -1,0 +1,21 @@
+.box {
+  height: 100px;
+  width: 100px;
+  background-color: lightblue;
+  margin: 2rem;
+}
+
+.display-inline {
+  display: inline;
+}
+
+.display-inline-block {
+  display: inline-block;
+  width: 800px;
+}
+
+input,
+button {
+  width: 100px;
+  height: 100px;
+}

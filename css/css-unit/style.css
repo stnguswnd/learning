@@ -1,0 +1,46 @@
+.parent {
+  background-color: blue;
+  height: 600 px;
+}
+
+.child-1 {
+  background-color: red;
+  width: 50%;
+  height: 50%;
+}
+
+.child-2 {
+  background-color: yellow;
+  width: 25%;
+  height: 50%;
+}
+
+/* 중첩이 될 수 있어서 주의해야한다 */
+.parrent-font {
+  font-size: 30px;
+}
+
+.child-font-1 {
+  /*15px*/
+  font-size: 0.5em;
+}
+
+.child-font-1 {
+  /*60px*/
+  font-size: 2em;
+}
+
+.child-child-font-2 {
+  /*60px*/
+  font-size: 2em;
+}
+
+.parent-div {
+  color: aqua;
+  font-size: 10rem;
+  border: 4px yellow dashed;
+}
+
+.child-div {
+  border: 4px red dashed;
+}
