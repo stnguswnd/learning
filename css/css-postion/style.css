@@ -1,0 +1,53 @@
+.box-1 {
+  width: 100px;
+  height: 100px;
+  background-color: lightblue;
+  margin: 2rem;
+}
+
+.relative {
+  position: relative;
+}
+
+/* 이동속성 (top, left, bottom, right)을 부여 */
+.left-10 {
+  left: 100px;
+  top: 100px;
+}
+
+.parent-box {
+  position: relative;
+  height: 300px;
+  background-color: lightgreen;
+}
+
+.box-2 {
+  width: 100px;
+  height: 100px;
+  background-color: lightcoral;
+}
+
+.absoulte {
+  position: absolute;
+}
+
+.top-50 {
+  top: 50px;
+}
+
+.right-50 {
+  top: 100px;
+  right: 100px;
+}
+
+/* fixed 포지션 */
+.box-3 {
+  height: 200px;
+  width: 100%;
+  background-color: lightgray;
+}
+
+.fixed {
+  position: fixed;
+  bottom: 0px;
+}
