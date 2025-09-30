@@ -1,17 +1,10 @@
 import React from "react";
-import OnChange from "./components/EventHandling/onChange";
-import OnSubmit from "./components/EventHandling/onSubmit";
-import ProductContainer from "./components/ProductCard/ProductContainer";
-import Parent from "./components/PropsChildren/Parent";
+import Container from "./components/ConditionalRendering/Container";
 
-function App() {
+export default function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <Parent />
-      </header>
+    <div>
+      <Container />
     </div>
   );
 }
-
-export default App;
