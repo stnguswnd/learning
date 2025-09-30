@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <button>조회</button>
+    <button id="delete">삭제</button>
+    <script>
+      //set 아이템으로 키, 밸류를 설정하고, get 아이템으로 key를 가지고 밸류를 가지고 옴.
+      localStorage.setItem("key", "value");
+      localStorage.setItem("키", "값");
+      localStorage.setItem("저녁", "도시락");
+
+      //태그명이 버튼 요소 선택
+      const button = document.querySelector("button");
+
+      button.addEventListener("click", () => {
+        //로컬 스토리지에서 key가 저녁인 데이터를 불러오기
+        // localStorage.getItem : key에 해당되는 로컬 스토리지 데이터를 불러오기
+        const data = localStorage.getItem("저녁");
+        alert(data);
+      });
+
+      //id 속성이 delete 요소를 선택
+      const deletButton = document.querySelector("#delete");
+    </script>
+  </body>
+</html>

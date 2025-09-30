@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+  <body>
+    <form id="form">
+      <label>
+        비밀번호:
+        <input type="password" name="password" required />
+      </label>
+      <label>
+        비밀번호 확인:
+        <input type="password" name="password-confirm" required />
+      </label>
+      <button type="submit">제출</button>
+    </form>
+
+    <script>
+      const formTag = document.querySelector("#form");
+
+      formTag.addEventListener("submit", function (event) {
+        event.preventDefault();
+        //console.log(formTag["elements"]); // form 내부 입력 요소들의 객체값
+        // 제출을 했을 떄
+        // name 속성이 password인 입력 요소의 값과
+        // name 속성이 password-confirm 인 입력 요소의 값이
+        // 동일한지 확인하는 코드를 작성
+        // 같으면 "같습니다" 출력 / 다르면 "다릅니다 출력"
+        const T1 = formTag["elements"]["password"]["value"];
+        const T2 = formTag["elements"]["password-confirm"]["value"];
+
+        if (T1 === T2) {
+          alert("같습니다.");
+        } else {
+          alert("다릅니다.");
+        }
+        console.log("제출");
+      });
+    </script>
+  </body>
+</html>

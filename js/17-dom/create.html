@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <div id="parent">
+      <div id="child"></div>
+    </div>
+    <script>
+      // div 태그 요소 생성, 변수에 할당
+      const divTag = document.createElement("div");
+
+      //요소.setAtrribute("id","container");
+      divTag.setAttribute("id", "container");
+
+      //p 태그 요소 생성, 변수에 할당
+      const pTag = document.createElement("p");
+
+      // 요소의 textContent 속성으로 텍스트 설정
+      pTag["textContent"] = "pTag";
+
+      // apend() 메서드로 body 태그에 divTag를 추가
+      const bodyTag = document.querySelector("body");
+      bodyTag.append(divTag, pTag);
+
+      //h1 태그 요소를 생성하고, 변수에 할당
+      const h1Tag = document.createElement("h1");
+      //텍스트 H1 설정
+      h1Tag["textContent"] = "H1";
+
+      //id가 child인 요소를 선택하고, 변수에
+      const childTag = document.querySelector("#child");
+
+      const parentTag = document.querySelector("#parent");
+
+      // 부모요소 parentTag, 특정 자식 요소 childTag, 추가할 요소 h1 Tag
+      parentTag.insertBefore(h1Tag, childTag); //H1을 Child 기준으로 앞에 넣겠다.
+    </script>
+  </body>
+</html>
