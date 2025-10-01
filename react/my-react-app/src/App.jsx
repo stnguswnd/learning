@@ -1,14 +1,11 @@
 import React from "react";
-import Container from "./components/List/Container";
-import Product from "./components/Carts/Product";
-import Carts from "./components/Carts/Carts";
-import Container from "./components/List/Container";
-import StateBasic from "./components/State/StateBasic";
+import Container from "./components/StateAdvanced/Container";
 
 export default function App() {
   return (
     <div>
-      <StateBasic></StateBasic>
+      App
+      <Container></Container>
     </div>
   );
 }
