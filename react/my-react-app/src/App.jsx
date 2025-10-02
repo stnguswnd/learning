@@ -1,11 +1,12 @@
 import React from "react";
-import Container from "./components/StateAdvanced/Container";
+import MovieList from "./components/TMDB/MovieList";
+import MovieSearch from "./components/TMDB/MovieSearch";
 
 export default function App() {
   return (
     <div>
       App
-      <Container></Container>
+      <MovieSearch />
     </div>
   );
 }
