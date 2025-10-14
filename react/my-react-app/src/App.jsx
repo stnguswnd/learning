@@ -6,7 +6,7 @@ export default function App() {
   return (
     <div>
       App
-      <MovieSearch />
+      <MovieList></MovieList>
     </div>
   );
 }
