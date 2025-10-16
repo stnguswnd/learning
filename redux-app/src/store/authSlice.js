@@ -69,6 +69,29 @@ const login = createAsyncThunk(
     }
   }
 );
+//로그아웃 비동기 처리
+const logout = createAsyncThunk(
+  "auth/logout",
+
+  async (_, { rejectWithValue, getState }) => {
+    try {
+      const config = {
+        url: `${SUPABASE_URL}/auth/v1/logout`,
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+          apikey: SUPABASE_ANON_KEY,
+          Authorization: `Bearer ${getState().auth.token}`,
+          // getState().auth.token: 전역 상태로 관리되는 사용자 인증 토큰
+        },
+      };
+      const response = await axios(config);
+      return response["data"];
+    } catch (error) {
+      return rejectWithValue(error["response"]["data"]);
+    }
+  }
+);
 
 // 비동기 처리 3개의 상태: 대기, 성공, 실패(거절)
 
@@ -108,6 +131,11 @@ const authSlice = createSlice({
       // 로그인(login) 성공 시 토큰 저장
       .addCase(login.fulfilled, (state, action) => {
         state.token = action.payload["access_token"];
+      })
+      .addCase(logout.fulfilled, (state) => {
+        //로그아웃 비동기 처리가 성공한 상태
+        //token 상태 초기화
+        state.token = null;
       });
   },
 });
@@ -115,4 +143,4 @@ const authSlice = createSlice({
 // 액션과 리듀서, 비동기 처리 액션 내보내기
 export const { resetIsSignup } = authSlice.actions;
 export default authSlice.reducer;
-export { signup, login };
+export { signup, login, logout };
