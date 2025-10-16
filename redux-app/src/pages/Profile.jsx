@@ -23,7 +23,7 @@ export default function Profile() {
     if (token) {
       setDecodeToken(jwtDecode(token));
     } else {
-      navigate("/login");
+      //navigate("/login");
       //로그인 상태가 아니면 사용자를 다시 로그인 페이지로 보내기
     }
   }, [token]);
