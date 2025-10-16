@@ -1,5 +1,6 @@
 import { Outlet } from "react-router-dom";
 import { NavLink } from "react-router-dom";
+
 export default function AuthLayout() {
   // NavLink 기본 class
   const baseClass = `text-blue-900 font-bold p-2`;
