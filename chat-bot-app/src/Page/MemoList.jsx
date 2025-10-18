@@ -9,15 +9,78 @@ export default function MemoList() {
 
   // 로컬스토리지에서 불러오기
   useEffect(() => {
-    const stored = localStorage.getItem("memos");
-    if (stored) {
-      setMemos(JSON.parse(stored));
+    try {
+      // chatMessages에서 메모 추출
+      const chatStored = localStorage.getItem("chatMessages");
+      let chatMemos = [];
+      if (chatStored) {
+        const chatMessages = JSON.parse(chatStored);
+        chatMemos = extractMemosFromChat(chatMessages);
+      }
+
+      // memos에서 수정된 메모들 불러오기
+      const memosStored = localStorage.getItem("memos");
+      let modifiedMemos = [];
+      if (memosStored) {
+        modifiedMemos = JSON.parse(memosStored);
+      }
+
+      // chatMessages의 메모와 수정된 메모들을 합치기
+      const allMemos = [...chatMemos];
+      
+      // 수정된 메모가 있으면 기존 메모를 대체
+      modifiedMemos.forEach(modifiedMemo => {
+        const existingIndex = allMemos.findIndex(memo => memo.id === modifiedMemo.id);
+        if (existingIndex !== -1) {
+          allMemos[existingIndex] = modifiedMemo;
+        } else {
+          allMemos.push(modifiedMemo);
+        }
+      });
+
+      setMemos(allMemos);
+    } catch (error) {
+      console.error("메모 데이터 로딩 오류:", error);
+      setMemos([]);
     }
   }, []);
+
+  // 채팅 메시지에서 메모 추출 함수
+  function extractMemosFromChat(chatMessages) {
+    const memos = [];
+    
+    chatMessages.forEach((message, index) => {
+      if (message.role === "ai" && message.content) {
+        try {
+          // AI 응답에서 JSON 파싱
+          const aiResponse = JSON.parse(message.content);
+          
+          // isMemo가 true이고 content가 있는 경우에만 메모로 추가
+          if (aiResponse.isMemo && aiResponse.content) {
+            const memo = {
+              id: `chat-${index}-${Date.now()}`, // 고유 ID
+              title: aiResponse.content,
+              content: aiResponse.content,
+              dueDate: aiResponse.dueDate || null,
+              isCompleted: false,
+              createdAt: new Date().toISOString().split("T")[0], // 오늘 날짜
+            };
+            memos.push(memo);
+          }
+        } catch (parseError) {
+          // JSON 파싱 실패 시 무시
+          console.log("AI 응답이 JSON 형식이 아닙니다:", parseError);
+        }
+      }
+    });
+    
+    return memos;
+  }
 
   // 로컬스토리지 업데이트 함수
   function updateLocalStorage(updated) {
     setMemos(updated);
+    // 메모 수정/삭제 시 별도의 memos 키에 저장
     localStorage.setItem("memos", JSON.stringify(updated));
   }
 
@@ -53,16 +116,21 @@ export default function MemoList() {
 
   // 필터링 적용
   const filteredMemos = memos.filter((memo) => {
-    if (filter === "completed") return memo.isCompleted;
-    if (filter === "incomplete") return !memo.isCompleted;
+    if (filter === "completed") return memo.isCompleted === true;
+    if (filter === "incomplete") return memo.isCompleted === false;
     return true;
   });
 
   // 정렬 적용
   const sortedMemos = [...filteredMemos].sort((a, b) => {
     if (sortBy === "dueDate") {
-      return new Date(a.dueDate || 0) - new Date(b.dueDate || 0);
+      // 마감일이 없는 경우 맨 뒤로
+      if (!a.dueDate && !b.dueDate) return 0;
+      if (!a.dueDate) return 1;
+      if (!b.dueDate) return -1;
+      return new Date(a.dueDate) - new Date(b.dueDate);
     } else {
+      // 작성일순 (최신순)
       return new Date(b.createdAt) - new Date(a.createdAt);
     }
   });

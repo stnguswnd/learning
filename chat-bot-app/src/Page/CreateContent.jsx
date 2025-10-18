@@ -6,7 +6,7 @@
 // // AI 객체 생성
 // const ai = new GoogleGenAI({ apiKey: GEMINI_API_KEY });
 
-import { useState, useEffect } from "react";
+import { useState } from "react";
 import MessageList from "../components/MessageList";
 import ChatForm from "../components/ChatForm";
 
@@ -16,10 +16,6 @@ export default function CreateContent() {
   const [prompt, setPrompt] = useState(""); // 사용자 입력 프롬프트 관리 상태
   const [messages, setMessages] = useState([]); // 사용자 - AI 메세지 관리 상태
   const [isLoading, setIsLoading] = useState(false); // AI 요청 후 응답 대기 상태
-
-  useEffect(() => {
-    localStorage.setItem("messages", JSON.stringify(messages));
-  }, [messages]);
 
   async function handleSubmit(event) {
     event.preventDefault();

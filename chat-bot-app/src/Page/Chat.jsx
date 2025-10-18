@@ -1,25 +1,16 @@
-import { useState, useEffect } from "react";
+import { useEffect, useState } from "react";
 import MessageList from "../components/MessageList";
 import ChatForm from "../components/ChatForm";
-
-import { ai } from "../utils/genai";
-import { chat } from "../utils/genai";
-import { config } from "../utils/genai";
+import { chat, config } from "../utils/genai";
 
 export default function Chat() {
   const [prompt, setPrompt] = useState("");
-  const [messages, setMessages] = useState([]);
+  const [messages, setMessages] = useState(() => {
+    const stored = localStorage.getItem("chatMessages");
+    return stored ? JSON.parse(stored) : [];
+  });
   const [isLoading, setIsLoading] = useState(false);
 
-  // 1️⃣ 페이지 로드 시 로컬 스토리지에서 메시지 불러오기
-  useEffect(() => {
-    const storedMessages = localStorage.getItem("chatMessages");
-    if (storedMessages) {
-      setMessages(JSON.parse(storedMessages));
-    }
-  }, []);
-
-  // 2️⃣ 메시지가 업데이트될 때마다 로컬 스토리지에 저장
   useEffect(() => {
     localStorage.setItem("chatMessages", JSON.stringify(messages));
   }, [messages]);
@@ -30,7 +21,6 @@ export default function Chat() {
         message: currentPrompt,
         config: config,
       });
-      console.log(response.data);
 
       setMessages((prev) => [...prev, { role: "ai", content: response.text }]);
     } catch (error) {
@@ -40,10 +30,9 @@ export default function Chat() {
 
   async function handleSubmit(event) {
     event.preventDefault();
-    if (isLoading === true || prompt.trim() === "") return;
+    if (isLoading || prompt.trim() === "") return;
 
     setMessages((prev) => [...prev, { role: "user", content: prompt }]);
-
     const currentPrompt = prompt;
     setPrompt("");
     setIsLoading(true);
