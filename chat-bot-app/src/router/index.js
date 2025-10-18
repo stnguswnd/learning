@@ -1,10 +1,10 @@
 import { createBrowserRouter } from "react-router-dom";
 import RootRayout from "../layout/RootRayout";
+import PrivateLayout from "../layout/PrivateLayout";
 import Home from "../Page/Home";
-import CreateContent from "../Page/CreateContent";
 import Chat from "../Page/Chat";
-import StreamChat from "../Page/StreamChat";
 import MemoList from "../Page/MemoList";
+import Login from "../Page/Login";
 
 const router = createBrowserRouter([
   {
@@ -16,20 +16,22 @@ const router = createBrowserRouter([
         Component: Home,
       },
       {
-        path: "/create-content",
-        Component: CreateContent,
+        path: "/login",
+        Component: Login,
       },
       {
-        path: "/chat",
-        Component: Chat,
-      },
-      {
-        path: "/stream-chat",
-        Component: StreamChat,
-      },
-      {
-        path: "/memo-list",
-        Component: MemoList,
+        path: "/",
+        Component: PrivateLayout,
+        children: [
+          {
+            path: "/chat",
+            Component: Chat,
+          },
+          {
+            path: "/memo-list",
+            Component: MemoList,
+          },
+        ],
       },
     ],
   },

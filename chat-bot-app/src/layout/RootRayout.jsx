@@ -4,10 +4,9 @@ import { Outlet, NavLink } from "react-router-dom";
 export default function RootRayout() {
   const navItems = [
     { path: "/", label: "홈페이지" },
-    { path: "/create-content", label: "메모 리스트에 저장" },
     { path: "/chat", label: "채팅" },
-    { path: "/stream-chat", label: "스트리밍 응답 채팅" },
     { path: "/memo-list", label: "메모 리스트" },
+    { path: "/profile", label: "프로필" },
   ];
 
   const activeNavItemClass = "bg-blue-50 text-blue-700 border border-blue-200";
@@ -22,8 +21,8 @@ export default function RootRayout() {
               key={item.path}
               to={item.path}
               className={({ isActive }) =>
-                `text-sm px-3 py-2 ${
-                  isActive ? activeNavItemClass : "text-gray-600"
+                `text-sm px-3 py-2 rounded-md transition-colors ${
+                  isActive ? activeNavItemClass : "text-gray-600 hover:text-gray-900"
                 }`
               }
             >
