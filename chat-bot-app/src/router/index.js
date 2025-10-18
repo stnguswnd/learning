@@ -5,6 +5,7 @@ import Home from "../Page/Home";
 import Chat from "../Page/Chat";
 import MemoList from "../Page/MemoList";
 import Login from "../Page/Login";
+import Profile from "../Page/Profile"; 
 
 const router = createBrowserRouter([
   {
@@ -30,6 +31,10 @@ const router = createBrowserRouter([
           {
             path: "/memo-list",
             Component: MemoList,
+          },
+          {
+            path: "/profile",
+            Component: Profile,
           },
         ],
       },
