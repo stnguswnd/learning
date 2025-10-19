@@ -32,9 +32,17 @@ export default function MemoList() {
       modifiedMemos.forEach(modifiedMemo => {
         const existingIndex = allMemos.findIndex(memo => memo.id === modifiedMemo.id);
         if (existingIndex !== -1) {
+          // 기존 메모를 수정된 메모로 교체
           allMemos[existingIndex] = modifiedMemo;
         } else {
-          allMemos.push(modifiedMemo);
+          // 새로운 메모인 경우에만 추가 (중복 방지)
+          const isDuplicate = allMemos.some(memo => 
+            memo.content === modifiedMemo.content && 
+            memo.createdAt === modifiedMemo.createdAt
+          );
+          if (!isDuplicate) {
+            allMemos.push(modifiedMemo);
+          }
         }
       });
 
@@ -58,7 +66,7 @@ export default function MemoList() {
           // isMemo가 true이고 content가 있는 경우에만 메모로 추가
           if (aiResponse.isMemo && aiResponse.content) {
             const memo = {
-              id: `chat-${index}-${Date.now()}`, // 고유 ID
+              id: `chat-${index}`, // 고정된 ID (index 기반)
               title: aiResponse.content,
               content: aiResponse.content,
               dueDate: aiResponse.dueDate || null,
