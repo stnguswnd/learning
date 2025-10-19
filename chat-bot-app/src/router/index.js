@@ -6,6 +6,9 @@ import Chat from "../Page/Chat";
 import MemoList from "../Page/MemoList";
 import Login from "../Page/Login";
 import Profile from "../Page/Profile"; 
+import MemoList2 from "../Page/MemoList2";
+import MemoList3 from "../Page/MemoList3";
+import Chat2 from "../Page/Chat2";
 
 const router = createBrowserRouter([
   {
@@ -29,6 +32,10 @@ const router = createBrowserRouter([
             Component: Chat,
           },
           {
+            path: "/chat2",
+            Component: Chat2,
+          },
+          {
             path: "/memo-list",
             Component: MemoList,
           },
@@ -36,6 +43,15 @@ const router = createBrowserRouter([
             path: "/profile",
             Component: Profile,
           },
+          {
+            path: "/memo-list2",
+            Component: MemoList2,
+
+          },
+          {
+            path: "/memo-list3",
+            Component: MemoList3,
+          }
         ],
       },
     ],

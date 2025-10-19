@@ -5,7 +5,10 @@ export default function RootRayout() {
   const navItems = [
     { path: "/", label: "홈페이지" },
     { path: "/chat", label: "채팅" },
+    { path: "/chat2", label: "supabase 연동 채팅" },
     { path: "/memo-list", label: "메모 리스트" },
+    { path: "/memo-list2", label: "supabase 연동 메모 리스트" },
+    { path: "/memo-list3", label: "메모 리스트3" },
     { path: "/profile", label: "프로필" },
   ];
 

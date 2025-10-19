@@ -28,6 +28,14 @@ const responseSchema = {
       type: "string",
       description: "할 일 마감 기한(YYYY-MM-DD)",
     },
+    priority: {
+      type: "string",
+      description: "할 일 우선 순위(HIGH, MEDIUM, LOW)",
+    },
+    category: {
+      type: "string",
+      description: "할 일 종류(TASK, MEMO, WORK, PLANNING)",
+    },
   },
   required: ["isMemo", "content", "dueDate"],
   additionalProperties: false,

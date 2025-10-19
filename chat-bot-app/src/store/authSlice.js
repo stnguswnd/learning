@@ -160,6 +160,18 @@ const authSlice = createSlice({
         //token 상태 초기화
         state.token = null;
         
+          // localStorage에서 토큰 제거
+          try {
+            localStorage.removeItem("authToken");
+        } catch (error) {
+          console.error("토큰 제거 실패:", error);
+        }
+      })
+      .addCase(logout.rejected, (state) => {
+        // 로그아웃 API 실패해도 로컬 로그아웃 처리
+        console.warn("Supabase 로그아웃 API 실패, 로컬 로그아웃 처리");
+        state.token = null;
+        
         // localStorage에서 토큰 제거
         try {
           localStorage.removeItem("authToken");
