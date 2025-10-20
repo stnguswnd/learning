@@ -30,8 +30,6 @@ export default function MemoListSupabase2() {
   }
 
   const userId = token ? getUserIdFromToken(token) : null;
-  console.log("🔑 현재 토큰:", token ? "존재함" : "없음");
-  console.log("👤 현재 userId:", userId);
 
   // ✅ AI 응답에서 메모 추출하는 함수
   function extractMemosFromChatMessages(chatMessages) {
@@ -43,13 +41,27 @@ export default function MemoListSupabase2() {
           // JSON 형태의 AI 응답 파싱 시도
           const aiResponse = JSON.parse(message.content);
           if (aiResponse.isMemo === true) {
+            // AI 응답의 category를 Supabase에서 허용하는 값으로 매핑
+            const mapCategory = (aiCategory) => {
+              const categoryMap = {
+                'TASK': 'WORK',
+                'MEMO': 'GENERAL', 
+                'WORK': 'WORK',
+                'PLANNING': 'PLANNING',
+                'HOBBY': 'HOBBY',
+                'USER': 'USER',
+                'GENERAL': 'GENERAL'
+              };
+              return categoryMap[aiCategory] || 'GENERAL';
+            };
+
             memos.push({
               id: `chat-${message.id || index}`,
               title: aiResponse.content,
               content: aiResponse.content,
               due_date: aiResponse.dueDate || null,
               priority: aiResponse.priority || "MEDIUM",
-              category: aiResponse.category || "GENERAL",
+              category: mapCategory(aiResponse.category) || "GENERAL",
               is_completed: false,
               created_at: message.created_at,
               source: "chat_message",
@@ -138,13 +150,27 @@ export default function MemoListSupabase2() {
         return;
       }
 
+      // AI 응답의 category를 Supabase에서 허용하는 값으로 매핑
+      const mapCategory = (aiCategory) => {
+        const categoryMap = {
+          'TASK': 'WORK',
+          'MEMO': 'GENERAL', 
+          'WORK': 'WORK',
+          'PLANNING': 'PLANNING',
+          'HOBBY': 'HOBBY',
+          'USER': 'USER',
+          'GENERAL': 'GENERAL'
+        };
+        return categoryMap[aiCategory] || 'GENERAL';
+      };
+
       const insertData = {
         user_id: userId,
         title: chatMemo.content,
         content: chatMemo.content,
         due_date: chatMemo.due_date,
         priority: chatMemo.priority || "MEDIUM",
-        category: chatMemo.category || "GENERAL",
+        category: mapCategory(chatMemo.category) || "GENERAL",
         is_completed: false,
         created_at: chatMemo.created_at,
       };

@@ -30,7 +30,6 @@ export default function Chat2() {
       const payload = JSON.parse(atob(parts[1]));
       const userId = payload.sub; // Supabase Auth의 user id
       
-      console.log("✅ 토큰에서 user_id 추출 성공:", userId);
       return userId;
     } catch (err) {
       console.error("❌ 토큰 파싱 실패:", err);
